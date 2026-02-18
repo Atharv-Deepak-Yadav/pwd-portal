@@ -10,19 +10,21 @@ export default function Home() {
         <title>bookURtest — Laboratory Dashboard</title>
       </Head>
 
-      <div className="min-h-screen bg-gray-100 flex">
+      <div className="min-h-screen flex" style={{ backgroundColor: "#fffbeb" }}>
         {/* Sidebar */}
         <DashboardSidebar />
 
         {/* Main Content */}
         <main className="flex-1 ml-60">
-          {/* Header */}
-          <header className="px-8 pt-8 pb-2">
-            <h1 className="text-2xl font-bold text-gray-800">
-              Laboratory —{" "}
-              <span className="text-blue-700">Overview</span>
+          {/* Yellow Header like mam's design */}
+          <header
+            className="px-8 pt-6 pb-6"
+            style={{ backgroundColor: "#f5c100" }}
+          >
+            <h1 className="text-2xl font-bold text-gray-900">
+              Laboratory — Overview
             </h1>
-            <p className="text-sm text-gray-500 mt-1">
+            <p className="text-sm text-gray-800 mt-1">
               Civil Construction Material Testing Dashboard
             </p>
           </header>

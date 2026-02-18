@@ -14,16 +14,19 @@ const DashboardSidebar = () => {
   const [activeItem, setActiveItem] = useState("Dashboard");
 
   return (
-    <aside className="fixed left-0 top-0 h-screen w-60 bg-blue-800 flex flex-col z-30">
+    <aside
+      className="fixed left-0 top-0 h-screen w-60 flex flex-col z-30"
+      style={{ backgroundColor: "#f5c100" }}
+    >
       {/* Logo Area */}
-      <div className="flex flex-col items-center pt-8 pb-6 border-b border-blue-700/50">
+      <div className="flex flex-col items-center pt-8 pb-6 border-b border-white/20">
         <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center shadow-md mb-3">
-          <HardHat className="w-9 h-9 text-blue-800" />
+          <HardHat className="w-9 h-9" style={{ color: "#f5c100" }} />
         </div>
-        <h1 className="text-lg font-bold text-white tracking-tight">
+        <h1 className="text-lg font-bold text-gray-900 tracking-tight">
           bookURtest
         </h1>
-        <p className="text-[10px] text-blue-300 mt-0.5 tracking-widest uppercase">
+        <p className="text-[10px] text-gray-800 mt-0.5 tracking-widest uppercase">
           Material Testing
         </p>
       </div>
@@ -38,14 +41,14 @@ const DashboardSidebar = () => {
               onClick={() => setActiveItem(item.label)}
               className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all ${
                 isActive
-                  ? "bg-white/20 text-white font-bold"
-                  : "text-blue-200 hover:bg-white/10 hover:text-white"
+                  ? "bg-white text-yellow-600 font-bold"
+                  : "text-gray-900 hover:bg-black/10 hover:text-gray-900"
               }`}
             >
               <item.icon className="w-5 h-5 flex-shrink-0" />
               <span>{item.label}</span>
               {isActive && (
-                <span className="ml-auto w-1.5 h-1.5 rounded-full bg-white/80" />
+                <span className="ml-auto w-1.5 h-1.5 rounded-full bg-yellow-600" />
               )}
             </button>
           );
@@ -53,7 +56,7 @@ const DashboardSidebar = () => {
       </nav>
 
       {/* Footer */}
-      <div className="px-4 pb-6 text-xs text-blue-400 text-center">
+      <div className="px-4 pb-6 text-xs text-gray-700 text-center">
         © 2026 bookURtest
       </div>
     </aside>
