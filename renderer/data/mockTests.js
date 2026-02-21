@@ -1,101 +1,156 @@
 export const mockTests = [
   {
     id: "TT-001",
-    workName: "Construction of RCC Bridge over River Godavari at Nashik-Pune Highway",
-    taluka: "Nashik",
-    contractorName: "Raj Constructions Pvt Ltd",
-    totalAmount: 248500,
+    workName: "Highway Construction Phase 2",
+    taluka: "Pune",
+    contractorName: "ABC Constructions Ltd",
+    totalAmount: 2500000,
+    details: "Concrete strength test - Grade M30",
     reportStatus: "Sent",
+    approvalStatus: "Approved",
     testDate: "2026-01-15",
-    location: "Nashik, Maharashtra",
-    items: [
-      { material: "Cement (OPC 53 Grade)", quantity: 50, unit: "bags", ratePerUnit: 380 },
-      { material: "Fine Aggregate (River Sand)", quantity: 10, unit: "m³", ratePerUnit: 1200 },
-      { material: "Coarse Aggregate (20mm)", quantity: 15, unit: "m³", ratePerUnit: 900 },
-      { material: "Steel Bars (Fe500)", quantity: 2000, unit: "kg", ratePerUnit: 68 },
+    panNumber: "ABCDE1234F",
+    aadhaarNumber: "XXXX-XXXX-5678",
+    registrationNumber: "MH/PWD/2024/1234",
+    rejectionReason: null,
+    documents: [
+      { name: "Work Order Document", url: "#" },
+      { name: "Request Document", url: "#" }
     ],
-    remarks: "All materials conform to IS specifications. Test results satisfactory.",
+    materials: [
+      {
+        category: "Water",
+        tests: ["PH Value", "Sulphate & Chloride Content"]
+      },
+      {
+        category: "Overlay Design",
+        tests: ["Benkelman Beam Test"]
+      }
+    ]
   },
   {
     id: "TT-002",
-    workName: "Rehabilitation of State Highway SH-12 from Pune to Solapur (km 45 to km 78)",
-    taluka: "Solapur",
-    contractorName: "Maharashtra Road Works Ltd",
-    totalAmount: 185000,
-    reportStatus: "In-process",
-    testDate: "2026-01-22",
-    location: "Solapur, Maharashtra",
-    items: [
-      { material: "Bitumen (VG-30)", quantity: 5, unit: "MT", ratePerUnit: 52000 },
-      { material: "Aggregate for BM", quantity: 20, unit: "m³", ratePerUnit: 850 },
-      { material: "Emulsion (CSS-1)", quantity: 500, unit: "litres", ratePerUnit: 60 },
+    workName: "Bridge Renovation Project",
+    taluka: "Mumbai",
+    contractorName: "XYZ Infrastructure",
+    totalAmount: 4800000,
+    details: "Steel reinforcement test",
+    reportStatus: "Sent",
+    approvalStatus: "Approved",
+    testDate: "2026-01-20",
+    panNumber: "XYZAB5678C",
+    aadhaarNumber: "XXXX-XXXX-1234",
+    registrationNumber: "MH/PWD/2024/5678",
+    rejectionReason: null,
+    documents: [
+      { name: "Work Order Document", url: "#" },
+      { name: "Request Document", url: "#" }
     ],
-    remarks: "Density test pending. Core samples sent to lab.",
+    materials: [
+      {
+        category: "Concrete",
+        tests: ["Compressive Strength", "Slump Test"]
+      }
+    ]
   },
   {
     id: "TT-003",
-    workName: "Construction of Stormwater Drainage Network at Aurangabad Municipal Area Phase II",
-    taluka: "Aurangabad",
-    contractorName: "Deccan Infrastructure Corp",
-    totalAmount: 132750,
-    reportStatus: "Rejected",
-    testDate: "2026-01-28",
-    location: "Aurangabad, Maharashtra",
-    items: [
-      { material: "Cement (PPC)", quantity: 30, unit: "bags", ratePerUnit: 360 },
-      { material: "Precast RCC Pipes (600mm)", quantity: 20, unit: "nos", ratePerUnit: 4800 },
-      { material: "Coarse Aggregate (10mm)", quantity: 8, unit: "m³", ratePerUnit: 950 },
+    workName: "Metro Rail Foundation",
+    taluka: "Thane",
+    contractorName: "Metro Build Corp",
+    totalAmount: 8200000,
+    details: "Soil bearing capacity analysis",
+    reportStatus: "In-process",
+    approvalStatus: "Approved",
+    testDate: "2026-01-25",
+    panNumber: "METRO9876D",
+    aadhaarNumber: "XXXX-XXXX-9876",
+    registrationNumber: "MH/PWD/2024/9876",
+    rejectionReason: null,
+    documents: [
+      { name: "Work Order Document", url: "#" },
+      { name: "Request Document", url: "#" }
     ],
-    remarks: "Compressive strength of concrete cubes failed at 28 days. Retesting required.",
+    materials: [
+      {
+        category: "Soil",
+        tests: ["Bearing Capacity", "Moisture Content"]
+      }
+    ]
   },
   {
     id: "TT-004",
-    workName: "Strengthening and Widening of District Road from Kolhapur to Sangli via Jaysingpur",
-    taluka: "Kolhapur",
-    contractorName: "Shivaji Road Builders",
-    totalAmount: 320000,
+    workName: "Residential Complex - Tower A",
+    taluka: "Nagpur",
+    contractorName: "Prime Developers",
+    totalAmount: 1900000,
+    details: "Brick compression test",
     reportStatus: "Sent",
-    testDate: "2026-02-03",
-    location: "Kolhapur, Maharashtra",
-    items: [
-      { material: "GSB Material", quantity: 50, unit: "m³", ratePerUnit: 650 },
-      { material: "WMM Material", quantity: 40, unit: "m³", ratePerUnit: 720 },
-      { material: "Bitumen (VG-40)", quantity: 8, unit: "MT", ratePerUnit: 55000 },
-      { material: "Aggregate for DBM", quantity: 35, unit: "m³", ratePerUnit: 820 },
+    approvalStatus: "Pending",
+    testDate: "2026-02-01",
+    panNumber: "PRIME2468E",
+    aadhaarNumber: "XXXX-XXXX-2468",
+    registrationNumber: "MH/PWD/2024/2468",
+    rejectionReason: null,
+    documents: [
+      { name: "Work Order Document", url: "#" },
+      { name: "Request Document", url: "#" }
     ],
-    remarks: "All tests completed. Report approved by site engineer.",
+    materials: [
+      {
+        category: "Bricks",
+        tests: ["Compression Test", "Water Absorption"]
+      }
+    ]
   },
   {
     id: "TT-005",
-    workName: "Construction of Footover Bridge at Thane Railway Station near Platform 6",
-    taluka: "Thane",
-    contractorName: "Metro Steel Fabricators",
-    totalAmount: 475000,
-    reportStatus: "In-process",
-    testDate: "2026-02-08",
-    location: "Thane, Maharashtra",
-    items: [
-      { material: "Structural Steel (IS 2062 E250)", quantity: 5000, unit: "kg", ratePerUnit: 72 },
-      { material: "Cement (OPC 53)", quantity: 80, unit: "bags", ratePerUnit: 385 },
-      { material: "TMT Bars (Fe550)", quantity: 3000, unit: "kg", ratePerUnit: 74 },
-      { material: "Anchor Bolts (M24)", quantity: 48, unit: "nos", ratePerUnit: 320 },
+    workName: "Airport Runway Extension",
+    taluka: "Nashik",
+    contractorName: "Sky Infrastructure",
+    totalAmount: 12000000,
+    details: "Asphalt mix design verification",
+    reportStatus: "Rejected",
+    approvalStatus: "Approved",
+    testDate: "2026-02-05",
+    panNumber: "SKYIF1357F",
+    aadhaarNumber: "XXXX-XXXX-1357",
+    registrationNumber: "MH/PWD/2024/1357",
+    rejectionReason: "Incorrect material test data - sample preparation did not follow standard procedures",
+    documents: [
+      { name: "Work Order Document", url: "#" },
+      { name: "Request Document", url: "#" }
     ],
-    remarks: "Ultrasonic testing of welds ongoing. Structural load test scheduled.",
+    materials: [
+      {
+        category: "Asphalt",
+        tests: ["Marshall Stability", "Flow Value"]
+      }
+    ]
   },
   {
     id: "TT-006",
-    workName: "Laying of Water Supply Pipeline (300mm DI) from WTP to Distribution Point at Nagpur Zone 4",
-    taluka: "Nagpur",
-    contractorName: "NMC Infrastructure Pvt Ltd",
-    totalAmount: 98500,
+    workName: "Dam Safety Assessment",
+    taluka: "Satara",
+    contractorName: "Water Works Ltd",
+    totalAmount: 3500000,
+    details: "Concrete core sample testing",
     reportStatus: "Sent",
-    testDate: "2026-02-12",
-    location: "Nagpur, Maharashtra",
-    items: [
-      { material: "DI Pipes (300mm K9)", quantity: 500, unit: "m", ratePerUnit: 185 },
-      { material: "Sluice Valves (300mm)", quantity: 4, unit: "nos", ratePerUnit: 12000 },
-      { material: "Cement Mortar Lining", quantity: 500, unit: "m", ratePerUnit: 12 },
+    approvalStatus: "Approved",
+    testDate: "2026-02-10",
+    panNumber: "WATER8520G",
+    aadhaarNumber: "XXXX-XXXX-8520",
+    registrationNumber: "MH/PWD/2024/8520",
+    rejectionReason: null,
+    documents: [
+      { name: "Work Order Document", url: "#" },
+      { name: "Request Document", url: "#" }
     ],
-    remarks: "Hydraulic pressure test completed. Leakage within permissible limits.",
-  },
+    materials: [
+      {
+        category: "Concrete",
+        tests: ["Core Strength", "Rebound Hammer Test"]
+      }
+    ]
+  }
 ];

@@ -1,55 +1,57 @@
-import { ClipboardList, Send, Loader, XCircle } from "lucide-react";
-import { mockTests } from "../../data/mockTests";
+import { TrendingUp, CheckCircle, Clock, AlertCircle } from "lucide-react";
 
-const StatCards = () => {
-  const total = mockTests.length;
-  const sent = mockTests.filter((t) => t.reportStatus === "Sent").length;
-  const inProcess = mockTests.filter((t) => t.reportStatus === "In-process").length;
-  const rejected = mockTests.filter((t) => t.reportStatus === "Rejected").length;
+const StatCards = ({ tests = [] }) => {
+  const total = tests.length;
+  const approved = tests.filter((t) => t.approvalStatus === "Approved").length;
+  const pending = tests.filter((t) => t.approvalStatus === "Pending").length;
+  const rejected = tests.filter((t) => t.reportStatus === "Rejected").length;
 
   const cards = [
     {
-      label: "Total Test",
-      value: total,
-      icon: ClipboardList,
-      color: "text-blue-700",
-      bg: "bg-blue-50 border-blue-100",
+      label: "Total Tests",
+      value: total.toLocaleString(),
+      icon: TrendingUp,
+      bg: "from-blue-600 to-blue-700",
     },
     {
-      label: "Send Report",
-      value: sent,
-      icon: Send,
-      color: "text-green-600",
-      bg: "bg-green-50 border-green-100",
+      label: "Approved Reports",
+      value: approved.toLocaleString(),
+      icon: CheckCircle,
+      bg: "from-green-600 to-green-700",
     },
     {
-      label: "In-process Report",
-      value: inProcess,
-      icon: Loader,
-      color: "text-indigo-700",
-      bg: "bg-indigo-50 border-indigo-100",
+      label: "Pending Review",
+      value: pending.toLocaleString(),
+      icon: Clock,
+      bg: "from-orange-500 to-orange-600",
     },
     {
-      label: "Rejected Report",
-      value: rejected,
-      icon: XCircle,
-      color: "text-red-600",
-      bg: "bg-red-50 border-red-100",
+      label: "Rejected",
+      value: rejected.toLocaleString(),
+      icon: AlertCircle,
+      bg: "from-red-600 to-red-700",
     },
   ];
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
       {cards.map((card) => (
         <div
           key={card.label}
-          className={`rounded-xl p-5 shadow-sm border flex flex-col items-center text-center gap-2 ${card.bg}`}
+          className={`bg-gradient-to-br ${card.bg} rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 cursor-pointer text-white relative overflow-hidden`}
         >
-          <div className="w-10 h-10 rounded-full flex items-center justify-center bg-white shadow-sm">
-            <card.icon className={`w-5 h-5 ${card.color}`} />
+          <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16" />
+          
+          <div className="flex justify-between items-start mb-4 relative z-10">
+            <div className="text-sm font-medium opacity-90">{card.label}</div>
+            <div className="bg-white/20 p-2.5 rounded-lg backdrop-blur-sm">
+              <card.icon className="w-5 h-5 text-white" />
+            </div>
           </div>
-          <span className="text-3xl font-bold text-gray-800">{card.value}</span>
-          <span className="text-sm text-gray-500 font-medium">{card.label}</span>
+
+          <div className="relative z-10">
+            <div className="text-4xl font-bold">{card.value}</div>
+          </div>
         </div>
       ))}
     </div>
@@ -57,4 +59,3 @@ const StatCards = () => {
 };
 
 export default StatCards;
-
