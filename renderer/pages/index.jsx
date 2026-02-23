@@ -4,111 +4,128 @@ import { useState } from "react";
 export default function Login() {
   const router = useRouter();
   const [phone, setPhone] = useState("");
-  const [otp, setOtp] = useState("");
 
   const handleSendOTP = () => {
     if (phone.length !== 10) {
       alert("Enter valid 10 digit phone number");
       return;
     }
-
-    // Generate dummy 4-digit OTP
     const generatedOTP = Math.floor(1000 + Math.random() * 9000);
-    setOtp(generatedOTP);
-
     alert(`Dummy OTP Generated: ${generatedOTP}`);
-
-    // Directly go to dashboard
+    localStorage.setItem("userPhone", phone);
     router.push("/dashboard");
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#f5c100] via-[#ffd700] to-[#f5a500] px-12">
+    <div
+      className="min-h-screen w-full flex items-center justify-center px-6 relative overflow-hidden"
+      style={{
+        backgroundImage: "url('/images/login-bg.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundAttachment: "fixed",
+      }}
+    >
+      {/* YELLOW OVERLAY - DARKER (70% opacity like image 2) */}
+      <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/70 via-yellow-600/70 to-yellow-700/70"></div>
 
-      <div className="w-full max-w-7xl flex items-center justify-between">
+      {/* DECORATIVE ELEMENTS */}
+      <div className="absolute -top-40 -left-40 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
+      <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
 
-        {/* LEFT SIDE */}
-        <div className="flex-1">
+      {/* CONTENT */}
+      <div className="w-full max-w-7xl grid grid-cols-2 gap-20 items-center relative z-10">
+        
+        {/* LEFT SIDE - SAME AS IMAGE 1 */}
+        <div className="space-y-10">
+          <div>
+            <p className="text-black font-bold uppercase tracking-widest text-sm mb-4 drop-shadow-lg">
+              🏗️ Construction Testing Portal
+            </p>
+            <h1 className="text-6xl font-black leading-tight mb-6 text-black" style={{
+              textShadow: "2px 2px 4px rgba(0,0,0,0.3), 4px 4px 8px rgba(0,0,0,0.2)"
+            }}>
+              Material Testing
+              <br />
+              Excellence
+            </h1>
+            <p className="text-2xl font-bold text-black" style={{
+              textShadow: "1px 1px 3px rgba(0,0,0,0.3)"
+            }}>
+              Civil Construction Laboratory Dashboard
+            </p>
+          </div>
 
-          <h1 className="text-6xl font-black text-gray-900 leading-tight mb-4">
-            Laboratory Testing Portal
-          </h1>
-
-          <p className="text-lg text-gray-800 mb-6">
-            Civil construction material testing dashboard.
+          <p className="text-lg text-black leading-relaxed max-w-xl font-semibold" style={{
+            textShadow: "1px 1px 2px rgba(0,0,0,0.3)"
+          }}>
+            Professional material testing solutions for civil construction projects. Manage tests, reports, and operations with precision and security.
             <br />
-            <span className="font-semibold">
-              Secure. Fast. Reliable.
-            </span>
+            <br />
+            <span className="font-black text-black text-lg">✓ Certified • ✓ Accurate • ✓ Professional</span>
           </p>
 
+          {/* CONSTRUCTION IMAGE */}
           <img
             src="/images/construction.png"
-            alt="construction"
-            className="w-[360px] animate-float drop-shadow-2xl"
+            alt="Construction site"
+            className="w-64 rounded-2xl shadow-2xl border-4 border-black/20 hover:scale-105 transition-transform duration-300 object-cover"
           />
-
         </div>
 
-        {/* RIGHT SIDE */}
-        <div className="w-[480px]">
+        {/* RIGHT SIDE - SAME AS IMAGE 1 */}
+        <div className="flex justify-center">
+          <div className="w-full max-w-md bg-white/95 backdrop-blur-xl rounded-3xl p-12 shadow-2xl border border-white/40">
+            
+            <div className="mb-10">
+              <h2 className="text-4xl font-black text-gray-900">Welcome Back</h2>
+              <p className="text-gray-600 text-base mt-3 font-medium">Sign in to access your dashboard</p>
+            </div>
 
-          <div className="bg-white/90 backdrop-blur-xl rounded-[40px] p-12 shadow-2xl">
+            <div className="space-y-8">
+              <div>
+                <label className="text-xs font-black text-gray-700 uppercase tracking-widest block mb-4">
+                  📱 Phone Number
+                </label>
+                <input
+                  type="tel"
+                  placeholder="Enter 10-digit mobile number"
+                  value={phone}
+                  onChange={(e) =>
+                    setPhone(e.target.value.replace(/\D/g, "").slice(0, 10))
+                  }
+                  className="w-full px-6 py-4 rounded-xl border-2 border-gray-300 bg-white focus:border-yellow-500 focus:ring-2 focus:ring-yellow-400/20 transition-all outline-none text-gray-900 text-lg font-medium placeholder-gray-500"
+                />
+              </div>
 
-            <h2 className="text-3xl font-bold text-center mb-4">
-              Welcome Back
-            </h2>
-
-            <p className="text-center text-gray-600 mb-8">
-              Sign in to access your laboratory dashboard
-            </p>
-
-            <label className="text-sm font-semibold">
-              PHONE NUMBER
-            </label>
-
-            <input
-              type="tel"
-              placeholder="Enter 10-digit mobile number"
-              value={phone}
-              onChange={(e) =>
-                setPhone(e.target.value.replace(/\D/g, "").slice(0, 10))
-              }
-              className="w-full mt-2 mb-6 px-4 py-3 rounded-xl border-2 border-gray-300 bg-white focus:border-gray-900 focus:ring-2 focus:ring-gray-900/20 transition-all"
-            />
-
-            <button
-              onClick={handleSendOTP}
-              className="w-full py-3 rounded-xl bg-gray-800 text-white font-semibold hover:scale-[1.02] transition"
-            >
-              Send OTP
-            </button>
-
-            <p className="text-center mt-6 text-sm">
-              Don’t have an account?{" "}
-              <span
-                onClick={() => router.push("/register")}
-                className="underline cursor-pointer font-semibold"
+              <button
+                onClick={handleSendOTP}
+                className="w-full py-4 rounded-xl bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 hover:from-yellow-500 hover:via-yellow-600 hover:to-yellow-700 text-gray-900 font-black text-lg transition-all hover:shadow-2xl hover:shadow-yellow-500/50 hover:scale-105 active:scale-95 uppercase tracking-wider"
               >
-                Create Account
-              </span>
-            </p>
+                Send OTP
+              </button>
+            </div>
 
+            <div className="mt-10 pt-8 border-t border-gray-200 text-center">
+              <p className="text-gray-600 text-sm font-medium">
+                Don't have an account?{" "}
+                <span
+                  onClick={() => router.push("/register")}
+                  className="font-black text-yellow-600 cursor-pointer hover:text-yellow-700 underline"
+                >
+                  Register Here
+                </span>
+              </p>
+            </div>
+
+            <div className="mt-6 pt-6 border-t border-gray-200">
+              <p className="text-xs text-gray-500 text-center font-semibold">
+                🛡️ Enterprise-Grade Security • SSL Encrypted
+              </p>
+            </div>
           </div>
         </div>
-
       </div>
-
-      <style jsx>{`
-        @keyframes float {
-          0%,100% { transform: translateY(0px); }
-          50% { transform: translateY(-15px); }
-        }
-        .animate-float {
-          animation: float 4s ease-in-out infinite;
-        }
-      `}</style>
-
     </div>
   );
 }
